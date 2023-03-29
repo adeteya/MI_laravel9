@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('appointment', function (Blueprint $table) {
             $table->id();
-            $table->integer('doctor_id');
-            $table->integer('user_id');
-            $table->integer('konsultasi_id');
+            $table->foreignId('doctor_id')->nullable()->index('fk_appointment_to_doctor');
+            $table->foreignId('user_id')->nullable()->index('fk_appointment_to_users');
+            $table->foreignId('konsultasi_id')->nullable()->index('fk_appointment_to_konsultasi');
             $table->enum('level', [1,2,3]);
             $table->date('date');
             $table->time('time');

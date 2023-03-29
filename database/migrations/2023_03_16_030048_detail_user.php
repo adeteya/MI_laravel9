@@ -15,20 +15,20 @@ return new class extends Migration
     {
         Schema::create('detail_user', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('type_user_id');
-            $table->string('contact');
-            $table->longText('address');
+            $table->foreignId('user_id')->nullable()->index('fk_detail_user_to_users');
+            $table->foreignId('type_user_id')->nullable()->index('fk_detail_user_to_type_user');
+            $table->string('contact')->nullable();
+            $table->longText('address')->nullable();
             $table->longText('photo')->nullable();
-            $table->enum('gender', [1,2]);
-            $table->string('age');
+            $table->enum('gender', [1,2])->nullable();
+            $table->string('age')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
     }
 
     /**
-     * Reverse the migrations.
+     * Reverse the migrations.s
      *
      * @return void
      */

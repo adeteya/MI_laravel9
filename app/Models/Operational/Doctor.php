@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Doctor extends Model
 {
     //use HasFactory;
-    use softDeletes;
+    use SoftDeletes;
 
     //Deklarasi Table
     public $table = 'doctor';

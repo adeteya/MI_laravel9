@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class ConfigPayment extends Model
 {
    //use HasFactory;
-   use softDeletes;
+   use SoftDeletes;
 
    //Deklarasi Table
    public $table = 'config_payment';

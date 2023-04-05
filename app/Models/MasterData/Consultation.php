@@ -32,6 +32,6 @@ class Consultation extends Model
 
     public function appointment() 
     {
-        return $this->hasMany('App\Models\MasterData\Consultation', 'konsultasi_id');
+        return $this->hasMany('App\Models\MasterData\Appointment', 'konsultasi_id');
     }
 }

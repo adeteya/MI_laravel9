@@ -13,7 +13,8 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens;
-    use HasFactory;
+    //use HasFactory;
+    use SoftDeletes;
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
@@ -23,6 +24,7 @@ class User extends Authenticatable
         'created_at',
         'updated_at',
         'deleted_at',
+        'email_verified_at',
     ];
 
     /**

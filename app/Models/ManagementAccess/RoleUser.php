@@ -30,4 +30,15 @@ class RoleUser extends Model
         'deleted_at',
 
     ];
+    //Relasi One to many (hasMany, Parameter1, Parameter2, Parameter3)
+
+    public function role() 
+    {
+        return $this->belongsTo('App\Models\ManagementAccess\Role', 'role_id', 'id');
+    }
+
+    public function user() 
+    {
+        return $this->belongsTo('App\Models\User', 'user_id', 'id');
+    }
 }

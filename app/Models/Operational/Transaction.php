@@ -36,4 +36,11 @@ class Transaction extends Model
          'deleted_at',
  
      ];
+
+     public function appointment() 
+    {
+        return $this->belongsTo('App\Models\Operational/Appointment', 'appointment_id', 'id');
+    }
+
+     
 }

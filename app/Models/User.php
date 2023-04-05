@@ -18,6 +18,13 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
+    //Tipe Data Harus yyyy-mm-dd hh-mmm-ss
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -58,4 +65,19 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function detail_user() 
+    {
+        return $this->hasOne('App\Models\ManagementAccess\DetailUser', 'user_id');
+    }
+
+    public function role_user() 
+    {
+        return $this->hasMany('App\Models\ManagementAccess\RoleUser', 'user_id');
+    }
+
+    public function appointment() 
+    {
+        return $this->hasMany('App\Models\Operational\Appointment', 'user_id');
+    }
 }

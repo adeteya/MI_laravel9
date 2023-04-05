@@ -28,4 +28,11 @@ class TypeUser extends Model
         'deleted_at',
 
     ];
+
+    //Relasi One To Many (hasMany, Parameter1, Parameter2)
+
+    public function detail_user() 
+    {
+        return $this->hasMany('App\Models\ManagementAccess\DetailUser', 'type_user_id');
+    }
 }
